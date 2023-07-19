@@ -1,13 +1,8 @@
 export default function print() {
-  const arr = [];
+  const arr = [{ description: 'Feed Dogs', bool: false, number: 1 },
+    { description: 'Feed Catss', bool: false, number: 7 },
+    { description: 'Feed Sheeps', bool: true, number: 3 }];
 
-  const elem1 = { description: 'Feed Dogs', bool: false, number: 1 };
-  const elem2 = { description: 'Feed Catss', bool: false, number: 7 };
-  const elem3 = { description: 'Feed Sheeps', bool: true, number: 3 };
-
-  arr.push(elem1);
-  arr.push(elem2);
-  arr.push(elem3);
   arr.sort((a, b) => a.number - b.number);
 
   arr.forEach((element) => {
