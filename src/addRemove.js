@@ -14,7 +14,7 @@ export const appendTask = (text, size) => {
       <span class="close">&#215;</span>
   </button>`;
   document.querySelector('.list').appendChild(child);
-}
+};
 
 export const addByOrder = (text) => {
   let size = 0;
@@ -29,21 +29,21 @@ export const addByOrder = (text) => {
     localStorage.setItem('list', JSON.stringify(newArr));
   }
   appendTask(text, size);
-}
+};
 
 const displayRemoveEdit = (save, close, input, li) => {
   save.classList.add('visible');
   close.classList.add('visible');
   input.classList.add('visible');
   li.classList.add('editTask');
-}
+};
 
 const setEdit = (li, text) => {
   const id = li.getAttribute('id');
   const arr = JSON.parse(localStorage.getItem('list'));
   arr[id] = text;
   localStorage.setItem('list', JSON.stringify(arr));
-}
+};
 
 const saveEdit = (save, input, text, close, dots, li) => {
   save.addEventListener(('click'), (e) => {
@@ -58,14 +58,14 @@ const saveEdit = (save, input, text, close, dots, li) => {
     li.classList.remove('editTask');
     setEdit(li, text.innerHTML);
   });
-}
+};
 
 const setIds = () => {
   const list = document.getElementsByClassName('itemList');
   for (let i = 0; i < list.length; i += 1) {
     list[i].setAttribute('id', i);
   }
-}
+};
 
 const remove = (close, li) => {
   close.addEventListener(('click'), (e) => {
@@ -77,7 +77,7 @@ const remove = (close, li) => {
     li.remove();
     setIds();
   });
-}
+};
 
 export const editTask = (e) => {
   const dots = e.target.parentNode;
@@ -92,13 +92,13 @@ export const editTask = (e) => {
   input.value = text.innerHTML;
   saveEdit(save, input, text, close, dots, li);
   remove(close, li);
-}
+};
 
 export const editTaskOn = (dots) => {
   for (let i = 0; i < dots.length; i += 1) {
     dots.item(i).addEventListener('click', editTask);
   }
-}
+};
 
 export const clearCompleted = () => {
   const check = document.getElementsByClassName('check');
@@ -118,4 +118,4 @@ export const clearCompleted = () => {
   localStorage.setItem('list', JSON.stringify(cleared));
 
   setIds();
-}
+};
