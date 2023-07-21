@@ -1,4 +1,7 @@
-import printElem from './print';
 import './style.css';
+import ListTask from './interface';
 
-printElem();
+ListTask.loadList();
+ListTask.initAddTaks();
+ListTask.initEditTask();
+ListTask.initClearAllCompleted();

@@ -86,13 +86,67 @@ form {
 }
 
 .itemText {
+  display: none;
   padding-left: 8px;
-  width: 86%;
+  width: 85%;
+}
+
+.editText {
+  display: none;
+  width: 85%;
+  height: 85%;
+  border: none;
+  background-color: transparent;
+}
+
+.btn-dots {
+  display: none;
+  border: none;
+  background-color: transparent;
+}
+
+.btn-dots:hover {
+  cursor: pointer;
+}
+
+.btn-save {
+  display: none;
+  font-size: 14px;
+  font-weight: 900;
+  font-family: cursive;
+  color: rgb(5, 114, 25);
+  border: none;
+  margin-top: 2px;
+  background-color: transparent;
+}
+
+.btn-close {
+  display: none;
+  border: none;
+  background-color: transparent;
+}
+
+input:focus {
+  outline: none;
 }
 
 .dots {
   font-size: 20px;
   color: gray;
+}
+
+.close {
+  font-size: 26px;
+  font-family: cursive;
+  color: rgb(224, 12, 12);
+}
+
+.visible {
+  display: inline;
+}
+
+.editTask {
+  background-color: rgba(245, 245, 73, 0.347);
 }
 
 /* --- CLEAR ---- */
