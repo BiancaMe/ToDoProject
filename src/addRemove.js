@@ -1,9 +1,11 @@
-export const appendTask = (text, size) => {
+export const appendTask = (text, size, check) => {
   const child = document.createElement('li');
   child.setAttribute('class', 'item itemList');
   child.setAttribute('id', size);
+  let checked = '';
+  if (check) checked = 'checked';
   child.innerHTML = `
-  <input class='check' type='checkbox'>
+  <input class='check' type='checkbox' ${checked}>
   <label class=" visible itemText"> ${text} </label>
   <input class="editText" type="text">
   <button class=" visible btn-dots">
@@ -67,14 +69,14 @@ const saveEdit = (save, input, text, close, dots, li) => {
   });
 };
 
-const setIds = () => {
+export const setIds = () => {
   const list = document.getElementsByClassName('itemList');
   for (let i = 0; i < list.length; i += 1) {
     list[i].setAttribute('id', i);
   }
 };
 
-const setIndex = () => {
+export const setIndex = () => {
   const arr = JSON.parse(localStorage.getItem('list'));
   let i = 0;
   arr.forEach((element) => {
@@ -121,17 +123,4 @@ export const editTaskOn = (dots) => {
 export const getChecks = () => {
   const check = document.getElementsByClassName('check');
   return check;
-};
-
-export const clearCompleted = () => {
-  const check = document.getElementsByClassName('check');
-  const size = check.length;
-  const arr = JSON.parse(localStorage.getItem('list'));
-  const cleared = arr.filter((task) => !task.completed);
-  for (let i = size - 1; i >= 0; i -= 1) {
-    if (arr[i].completed) check[i].parentElement.remove();
-  }
-  localStorage.setItem('list', JSON.stringify(cleared));
-  setIds();
-  setIndex();
 };
