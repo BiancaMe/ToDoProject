@@ -5,3 +5,4 @@ ListTask.loadList();
 ListTask.initAddTaks();
 ListTask.initEditTask();
 ListTask.initClearAllCompleted();
+ListTask.initCheckTask();

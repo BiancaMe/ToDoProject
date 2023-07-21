@@ -1,5 +1,5 @@
 import {
-  appendTask, addByOrder, editTaskOn, clearCompleted,
+  appendTask, addByOrder, editTaskOn, clearCompleted, getChecks,
 } from './addRemove';
 
 class ListTask {
@@ -42,6 +42,24 @@ class ListTask {
         e.preventDefault();
         e.stopPropagation();
         clearCompleted();
+      });
+    }
+
+    static initCheckTask = () => {
+      window.addEventListener('load', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const check = getChecks();
+        const arr = JSON.parse(localStorage.getItem('list'));
+        for (let i = 0; i < check.length; i += 1) {
+          check[i].addEventListener('change', (e) => {
+            e.preventDefault();
+            if (e.target.checked) {
+              arr[e.target.parentElement.id].completed = true;
+            } else arr[e.target.parentElement.id].completed = false;
+            localStorage.setItem('list', JSON.stringify(arr));
+          });
+        }
       });
     }
 }

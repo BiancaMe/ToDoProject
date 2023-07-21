@@ -118,22 +118,19 @@ export const editTaskOn = (dots) => {
   }
 };
 
+export const getChecks = () => {
+  const check = document.getElementsByClassName('check');
+  return check;
+};
+
 export const clearCompleted = () => {
   const check = document.getElementsByClassName('check');
   const size = check.length;
   const arr = JSON.parse(localStorage.getItem('list'));
-  for (let i = 0; i < check.length; i += 1) {
-    if (check[i].checked) {
-      arr[i].completed = true;
-    } else {
-      arr[i].completed = false;
-    }
-  }
   const cleared = arr.filter((task) => !task.completed);
   for (let i = size - 1; i >= 0; i -= 1) {
     if (arr[i].completed) check[i].parentElement.remove();
   }
-
   localStorage.setItem('list', JSON.stringify(cleared));
   setIds();
   setIndex();
