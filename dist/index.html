@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Wbpack Exercise</title>
-<script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script><script defer src="print.bundle.js"></script></head>
+<script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
 <body>
     <ul class="list-container">
         <li class="itemHeading item">
@@ -14,12 +14,11 @@
         </li>
         <li class="itemForm item">
             <form >
-                <input id="add-item" placeholder="Add to your list..." type="text">
+                <input id="add-item" placeholder="Add to your list..." type="text" required>
                 <button id="submit" type="submit"><span id="subIcon">&#8629;</span></button>
             </form>
         </li>
-        <ul class="list">
-            
+        <ul id="list" class="list">
         </ul>
         <li class="itemClear item">
             <button id="clear">Clear all completed</button>

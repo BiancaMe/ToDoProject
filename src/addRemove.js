@@ -18,14 +18,21 @@ export const appendTask = (text, size) => {
 
 export const addByOrder = (text) => {
   let size = 0;
+  const newTask = {
+    description: text,
+    completed: false,
+    index: 0,
+  };
+
   if (localStorage.getItem('list') != null) {
     const arr = JSON.parse(localStorage.getItem('list'));
-    arr.push(text);
+    size = arr.length;
+    newTask.index = size;
+    arr.push(newTask);
     localStorage.setItem('list', JSON.stringify(arr));
-    size = arr.length - 1;
   } else {
     const newArr = [];
-    newArr.push(text);
+    newArr.push(newTask);
     localStorage.setItem('list', JSON.stringify(newArr));
   }
   appendTask(text, size);
