@@ -11,7 +11,7 @@ class ListTask {
         if (arr) {
           let i = 0;
           arr.forEach((element) => {
-            appendTask(element, i);
+            appendTask(element.description, i);
             i += 1;
           });
         }
