@@ -13,6 +13,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -71,6 +72,13 @@
 - **Use objects to store and access data**
 - **Understand improvements that ES6 brings to JavaScript**
 - **Understand how to use Webpack**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!----- LIVE DEMO -->
+## 🚀 Live Demo <a name="live-demo"></a>
+
+
+- [Live Demo Link](https://biancame.github.io/ToDoProject/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
