@@ -1,9 +1,11 @@
-export const appendTask = (text, size) => {
+export const appendTask = (text, size, check) => {
   const child = document.createElement('li');
   child.setAttribute('class', 'item itemList');
   child.setAttribute('id', size);
+  let checked = '';
+  if (check) checked = 'checked';
   child.innerHTML = `
-  <input class='check' type='checkbox'>
+  <input class='check' type='checkbox' ${checked}>
   <label class=" visible itemText"> ${text} </label>
   <input class="editText" type="text">
   <button class=" visible btn-dots">
@@ -48,7 +50,7 @@ const displayRemoveEdit = (save, close, input, li) => {
 const setEdit = (li, text) => {
   const id = li.getAttribute('id');
   const arr = JSON.parse(localStorage.getItem('list'));
-  arr[id] = text;
+  arr[id].description = text;
   localStorage.setItem('list', JSON.stringify(arr));
 };
 
@@ -67,11 +69,21 @@ const saveEdit = (save, input, text, close, dots, li) => {
   });
 };
 
-const setIds = () => {
+export const setIds = () => {
   const list = document.getElementsByClassName('itemList');
   for (let i = 0; i < list.length; i += 1) {
     list[i].setAttribute('id', i);
   }
+};
+
+export const setIndex = () => {
+  const arr = JSON.parse(localStorage.getItem('list'));
+  let i = 0;
+  arr.forEach((element) => {
+    element.index = i;
+    i += 1;
+  });
+  localStorage.setItem('list', JSON.stringify(arr));
 };
 
 const remove = (close, li) => {
@@ -83,6 +95,7 @@ const remove = (close, li) => {
     localStorage.setItem('list', JSON.stringify(arr));
     li.remove();
     setIds();
+    setIndex();
   });
 };
 
@@ -107,22 +120,7 @@ export const editTaskOn = (dots) => {
   }
 };
 
-export const clearCompleted = () => {
+export const getChecks = () => {
   const check = document.getElementsByClassName('check');
-  const cleared = [];
-  const removeIndex = [];
-  for (let i = 0; i < check.length; i += 1) {
-    if (check[i].checked) {
-      removeIndex.push(true);
-    } else {
-      cleared.push(check[i].nextElementSibling.textContent);
-      removeIndex.push(false);
-    }
-  }
-  for (let i = removeIndex.length; i >= 0; i -= 1) {
-    if (removeIndex[i]) check[i].parentElement.remove();
-  }
-  localStorage.setItem('list', JSON.stringify(cleared));
-
-  setIds();
+  return check;
 };
