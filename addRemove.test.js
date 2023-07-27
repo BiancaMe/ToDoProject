@@ -8,7 +8,7 @@ document.body.innerHTML = '<div>'
 + '  <ul id="list"></ul>'
 + '</div>';
 
-describe.only('Add new Task', () => {
+describe('Add new Task', () => {
   test('Test  Add new task "Feed Dogs" to LocalStore', () => {
     const mockTask = 'Feed Dogs';
     addByOrder(mockTask);
@@ -46,7 +46,7 @@ describe.only('Add new Task', () => {
   });
 });
 
-describe.only('Remove Task', () => {
+describe('Remove Task', () => {
   test('Remove Task "Feed Cats" from Storage', () => {
     const li = document.getElementById('1');
     remove(li);
@@ -55,7 +55,7 @@ describe.only('Remove Task', () => {
   });
 
   test('Remove Task "Feed Cats" from DOM', () => {
-    const listDom = Array.from(document.querySelectorAll('itemList'));
+    const listDom = Array.from(document.querySelectorAll('.itemList'));
     expect(listDom.find((elem) => elem.querySelector('.itemText').innerHTML === 'Feed Cats')).toBe(undefined);
   });
 
@@ -67,7 +67,7 @@ describe.only('Remove Task', () => {
   });
 
   test('Remove Task "Feed Dogs" from DOM', () => {
-    const listDom = Array.from(document.querySelectorAll('itemList'));
+    const listDom = Array.from(document.querySelectorAll('.itemList'));
     expect(listDom.find((elem) => elem.querySelector('.itemText').innerHTML === 'Feed Dogs')).toBe(undefined);
   });
 });
