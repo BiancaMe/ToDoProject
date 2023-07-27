@@ -112,6 +112,7 @@ To run the project, double click on the index to open it in the browser.
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Bianca Lopez**
+👤 **Michael Darkwah**
 
 - GitHub: [@BiancaMe](https://github.com/BiancaMe)
 - Twitter: [@BiancaMeLopez](https://twitter.com/BiancaMeLopez)
