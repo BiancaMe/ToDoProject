@@ -70,5 +70,4 @@ describe.only('Remove Task', () => {
     const listDom = Array.from(document.querySelectorAll('itemList'));
     expect(listDom.find((elem) => elem.querySelector('.itemText').innerHTML === 'Feed Dogs')).toBe(undefined);
   });
-  
 });
