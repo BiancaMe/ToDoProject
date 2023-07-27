@@ -151,7 +151,7 @@ If you like this project you can contac me and let me know.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank cc Creative Commons for letting me use their design and let me do some changes in init. 
+I would like to thank cc Creative Commons for letting me use their platform and letting me do some changes in init. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
