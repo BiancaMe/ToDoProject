@@ -8,15 +8,15 @@ document.body.innerHTML = '<div>'
 + '  <ul id="list"></ul>'
 + '</div>';
 
-describe('Add new Task', () => {
-  test('Test  Add new task "Feed Dogs" to LocalStore', () => {
-    const mockTask = 'Feed Dogs';
+describe.only('Add new Task', () => {
+  test('Test  Add new task "Feed sheeps" to LocalStore', () => {
+    const mockTask = 'Feed sheeps';
     addByOrder(mockTask);
     const task = getStorage();
     expect(task[0].description).toBe(mockTask);
   });
 
-  test('Test New task "Feed Dogs" add in DOM', () => {
+  test('Test New task "Feed sheeps" add in DOM', () => {
     const li = document.getElementById('0');
     expect(li.id).toBe('0');
   });
@@ -46,7 +46,7 @@ describe('Add new Task', () => {
   });
 });
 
-describe('Remove Task', () => {
+describe.only('Remove Task', () => {
   test('Remove Task "Feed Cats" from Storage', () => {
     const li = document.getElementById('1');
     remove(li);
@@ -55,19 +55,19 @@ describe('Remove Task', () => {
   });
 
   test('Remove Task "Feed Cats" from DOM', () => {
-    const listDom = Array.from(document.querySelectorAll('.itemList'));
+    const listDom = Array.from(document.querySelectorAll('itemList'));
     expect(listDom.find((elem) => elem.querySelector('.itemText').innerHTML === 'Feed Cats')).toBe(undefined);
   });
 
-  test('Remove Task "Feed Dogs" from Storage', () => {
+  test('Remove Task "Feed sheeps" from Storage', () => {
     const li = document.getElementById('0');
     remove(li);
     const list = getStorage();
-    expect(list.find((elem) => elem.description === 'Feed Dogs')).toBe(undefined);
+    expect(list.find((elem) => elem.description === 'Feed sheeps')).toBe(undefined);
   });
 
-  test('Remove Task "Feed Dogs" from DOM', () => {
-    const listDom = Array.from(document.querySelectorAll('.itemList'));
-    expect(listDom.find((elem) => elem.querySelector('.itemText').innerHTML === 'Feed Dogs')).toBe(undefined);
+  test('Remove Task "Feed sheeps" from DOM', () => {
+    const listDom = Array.from(document.querySelectorAll('itemList'));
+    expect(listDom.find((elem) => elem.querySelector('.itemText').innerHTML === 'Feed sheeps')).toBe(undefined);
   });
 });

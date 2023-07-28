@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1690551325445" clover="3.2.0">
-  <project timestamp="1690551325446" name="All files">
+<coverage generated="1690553102426" clover="3.2.0">
+  <project timestamp="1690553102427" name="All files">
     <metrics statements="103" coveredstatements="71" conditionals="12" coveredconditionals="10" methods="20" coveredmethods="13" elements="135" coveredelements="94" complexity="0" loc="103" ncloc="103" packages="1" files="1" classes="1"/>
-    <file name="addRemove.js" path="C:\Users\bi_me\Desktop\microverse\module-2\ToDoProject\src\addRemove.js">
+    <file name="addRemove.js" path="C:\Users\HP\Public\ToDoProject\src\addRemove.js">
       <metrics statements="103" coveredstatements="71" conditionals="12" coveredconditionals="10" methods="20" coveredmethods="13"/>
       <line num="1" count="4" type="stmt"/>
       <line num="2" count="11" type="stmt"/>
