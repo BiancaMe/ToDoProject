@@ -50,9 +50,10 @@ const displayRemoveEdit = (save, close, input, li) => {
   li.classList.add('editTask');
 };
 
-const setEdit = (li, text) => {
+export const setEdit = (li, text) => {
   const id = li.getAttribute('id');
-  const arr = JSON.parse(localStorage.getItem('list'));
+  const arr = getStorage();
+  li.querySelector('.itemText').innerHTML = text;
   arr[id].description = text;
   localStorage.setItem('list', JSON.stringify(arr));
 };
@@ -61,14 +62,13 @@ const saveEdit = (save, input, text, close, dots, li) => {
   save.addEventListener(('click'), (e) => {
     e.preventDefault();
     e.stopPropagation();
-    text.innerHTML = input.value;
     input.classList.remove('visible');
     save.classList.remove('visible');
     close.classList.remove('visible');
     dots.classList.add('visible');
     text.classList.add('visible');
     li.classList.remove('editTask');
-    setEdit(li, text.innerHTML);
+    setEdit(li, input.value);
   });
 };
 
@@ -80,7 +80,7 @@ export const setIds = () => {
 };
 
 export const setIndex = () => {
-  const arr = JSON.parse(localStorage.getItem('list'));
+  const arr = getStorage();
   let i = 0;
   arr.forEach((element) => {
     element.index = i;
@@ -130,4 +130,25 @@ export const editTaskOn = (dots) => {
 export const getChecks = () => {
   const check = document.getElementsByClassName('check');
   return check;
+};
+
+export const checkTask = (e) => {
+  const arr = getStorage();
+  if (e.checked) {
+    arr[e.parentElement.id].completed = true;
+  } else arr[e.parentElement.id].completed = false;
+  localStorage.setItem('list', JSON.stringify(arr));
+};
+
+export const clearAllCompleted = () => {
+  const listChecks = getChecks();
+  const size = listChecks.length;
+  const arr = getStorage();
+  const cleared = arr.filter((task) => !task.completed);
+  for (let i = size - 1; i >= 0; i -= 1) {
+    if (arr[i].completed) listChecks[i].parentElement.remove();
+  }
+  localStorage.setItem('list', JSON.stringify(cleared));
+  setIds();
+  setIndex();
 };
